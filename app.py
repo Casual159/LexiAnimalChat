@@ -1,5 +1,6 @@
 import os
 import sys
+
 import gradio as gr
 import soundfile as sf
 import io
@@ -131,4 +132,4 @@ with gr.Blocks() as demo:
     clear.click(lambda: ([], None, None), inputs=None, outputs=[chatbot, img_state, desc_state])
     shutdown.click(fn=shutdown_app)
 
-demo.queue().launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)), auth=("admin", "tajneheslo"))
+demo.queue().launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7861)), auth=("admin", "tajneheslo"), share=True)
