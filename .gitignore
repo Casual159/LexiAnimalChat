@@ -13,7 +13,7 @@ __pycache__/
 # Lokální a editorové soubory (macOS, VSCode)
 .DS_Store
 .vscode/
-
+.gradio/certificate.pem
 # Distribution / packaging
 .Python
 build/
