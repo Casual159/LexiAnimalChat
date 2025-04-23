@@ -128,7 +128,7 @@ with gr.Blocks() as demo:
         [msg, chatbot, image, description, img_state, desc_state, audio]
     )
     
-    clear.click(lambda: [], None, chatbot)
+    clear.click(lambda: ([], None, None), inputs=None, outputs=[chatbot, img_state, desc_state])
     shutdown.click(fn=shutdown_app)
 
 demo.queue().launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)), auth=("admin", "tajneheslo"))
