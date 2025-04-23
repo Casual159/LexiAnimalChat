@@ -66,7 +66,7 @@ def handle_audio(audio_data, history, current_img, current_desc):
     print(f"📂 Audio data ke kontrole: {audio_data}")
     if not audio_data:
         print("⚠️ Žádné audio data.")
-        return "", history + [{"role": "user", "content": "(žádná audio data)"}], \
+        return "", history + [("(žádná audio data)", "")], \
             gr.update(value=current_img, visible=bool(current_img)), \
             gr.update(value=current_desc, visible=bool(current_desc)), \
             current_img, current_desc, gr.update(visible=False)
@@ -75,7 +75,7 @@ def handle_audio(audio_data, history, current_img, current_desc):
 
     if is_audio_too_long(audio_array, sample_rate):
         print("⚠️ Příliš dlouhé audio.")
-        return "", history + [{"role": "user", "content": "(příliš dlouhá zpráva nebo chyba)"}], \
+        return "", history + [("(příliš dlouhá zpráva nebo chyba)", "")], \
             gr.update(value=current_img, visible=bool(current_img)), \
             gr.update(value=current_desc, visible=bool(current_desc)), \
             current_img, current_desc, gr.update(visible=False)
@@ -88,7 +88,7 @@ def handle_audio(audio_data, history, current_img, current_desc):
 
     if not user_input or len(user_input.strip()) < 3:
         print("⚠️ Neplatný vstup nebo prázdný přepis")
-        return "", history + [{"role": "user", "content": "(nerozpoznáno)"}], \
+        return "", history + [("(nerozpoznáno)", "")], \
             gr.update(value=current_img, visible=bool(current_img)), \
             gr.update(value=current_desc, visible=bool(current_desc)), \
             current_img, current_desc, gr.update(visible=False)
